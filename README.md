@@ -1,11 +1,12 @@
 pair-me-up
 ==========
 
+[![NPM](https://nodei.co/npm/pair-me-up.png?downloads=true&stars=true)](https://nodei.co/npm/pair-me-up/)
+
 Gives a range, each paired with one another
 
 ```js
 var pair = require('pair-me-up');
-
 var pairs = pair(1, 30);
 
 console.log(pairs);
