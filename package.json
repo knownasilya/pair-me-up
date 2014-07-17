@@ -1,0 +1,22 @@
+{
+  "name": "pair-me-up",
+  "version": "0.0.1",
+  "description": "Gives a range, each paired with one another",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test | tap-spec"
+  },
+  "author": "Ilya Radchenko",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knownasilya/pair-me-up.git"
+  },
+  "dependencies": {
+    "range": "0.0.2"
+  },
+  "devDependencies": {
+    "tap-spec": "^0.2.0",
+    "tape": "^2.13.3"
+  }
+}
