@@ -50,4 +50,18 @@ test('different range', function (t) {
   t.end();
 });
 
+test('shuffled pairs not in order', function (t) {
+  var start = 1;
+  var end = 30;
+  var result = gen(start, end, true);
+  var firstPairs = range(start, end + 1);
+  var resultFirsts = result.map(function (r) {
+    return r[0];
+  });
+
+  t.notSame(resultFirsts, firstPairs, 'first item in pair is random');
+  t.equal(resultFirsts.length, firstPairs.length, 'same amound of pairs');
+  t.end();
+});
+
 // TODO: Check for uniqueness

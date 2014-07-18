@@ -1,6 +1,6 @@
 {
   "name": "pair-me-up",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Gives a range, each paired with one another",
   "main": "index.js",
   "scripts": {

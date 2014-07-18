@@ -2,11 +2,13 @@
 
 var range = require('range');
 
-module.exports = function (start, end) {
+module.exports = function (start, end, shufflePairs) {
   var pairRange = range(start, end + 1);
   var getRandom = randomRange(start, end);
+  var pairedMap = {};
+  var shuffledMap = {};
   var result = [];
-  var paired = {};
+  var shuffled = [];
 
   pairRange.forEach(function (start) {
     var random = start;
@@ -14,17 +16,34 @@ module.exports = function (start, end) {
     while (random === start) {
       random = getRandom();
 
-      if (paired[random]) {
+      if (pairedMap[random]) {
         random = start;
       }
     }
 
-    paired[random] = true;
-
+    pairedMap[random] = true;
     result.push([start, random]);
   });
 
-  return result;
+  if (shufflePairs) {
+    var shuffleRandom = randomRange(start - 1, end - 1);
+
+    result.forEach(function (pair) {
+      var random = shuffleRandom();
+
+      while (shuffledMap[random]) {
+        random = shuffleRandom(); 
+      }
+
+      shuffled[random] = pair;
+      shuffledMap[random] = true;
+    });
+    
+    return shuffled;     
+  }
+  else {
+    return result;
+  }
 };
 
 function randomRange(min, max) {
